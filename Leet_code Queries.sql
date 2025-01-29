@@ -1,0 +1,2 @@
+-- LEET CODE SQL
+-- SQL Schema
