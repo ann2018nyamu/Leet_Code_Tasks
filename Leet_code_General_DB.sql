@@ -105,4 +105,11 @@ INSERT INTO EmployeeUNI(id, unique_id)
  (12, 1, 910),
  (13, 2, 970);
  
+ CREATE TABLE Weather(
+  transaction_id INT,
+ visit_id INT,
+ amount INT
+ );
+ 
+ 
  SHOW TABLES;
