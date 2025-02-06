@@ -129,7 +129,7 @@ INSERT INTO EmployeeUNI(id, unique_id)
  
  ALTER TABLE Activities MODIFY activity_type ENUM('start', 'end');
  
- INSERT INTO Activity(machine_id, process_id, activity_type, timestamp)
+ INSERT INTO Activities(machine_id, process_id, activity_type, timestamp)
  VALUES
  (0, 0, 'start', 0.712),
  (0, 0, 'end', 1.520),

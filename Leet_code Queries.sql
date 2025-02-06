@@ -61,6 +61,42 @@ AND low_fats = 'Y'
 GROUP BY recyclable, low_fats
 ORDER BY product_id DESC;
 
+-- Write a solution to find all dates' id with higher temperatures 
+-- compared to its previous dates (yesterday).
+-- Return the result table in any order.
+
+SELECT W1.id
+FROM Weathers W1
+JOIN Weathers W2 
+ON W1.recordDate = DATE_ADD(W2.recordDate, interval 1 DAY)
+WHERE  W1.temperature > W2.temperature
+
+-- Calculate the average processing time per machine_id.
+-- The precessing time for each (machine_id, process_id) is
+--   processing time = endstamp - start timestamp.-
+-- The average processing time per machine is 
+
+WITH ProcessTimes AS (
+     SELECT
+     a.machine_id,
+     (b.timestamp - a.timestamp) AS processing_time
+     FROM Activities a
+     JOIN Activities b
+     ON a.machine_id = b.machine_id
+     AND a.process_id = b.process_id
+     WHERE a.activity_type = 'start'
+     AND b.activity_type = 'end'
+)
+SELECT
+machine_id,
+ROUND(AVG(processing_time), 3) AS processing_time
+FROM ProcessTimes
+GROUP BY machine_id;
+
+
+
+
+
 
 
 
